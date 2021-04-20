@@ -6,36 +6,36 @@ namespace aplication
     public class SerieRepository : IRepository<Serie>
     {
 
-        private List<Serie> SerieList = new List<Serie>();
+        private List<Serie> serieList = new List<Serie>();
 
-        List<Serie> list()
+        public List<Serie> List()
         {
-
+            return serieList;
         }
 
-        Serie ReturnById(int Id)
+        public Serie ReturnById(int id)
         {
-
+            return serieList[id];
         }
 
-        void Insert(Serie obj)
+        public void Insert(Serie obj)
         {
-
+            serieList.Add(obj);
         }
 
-        void Remove(int Id)
+        public void Remove(int id)
         {
-
+            serieList[id].Exclude();
         }
 
-        void Update(int Id, Serie obj)
+        public void Update(int id, Serie obj)
         {
-            Li
+            serieList[id] = obj;
         }
 
-        int Next()
+        public int Next()
         {
-
+            return serieList.Count;
         }
     }
 }

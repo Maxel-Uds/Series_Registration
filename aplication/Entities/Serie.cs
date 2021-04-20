@@ -8,6 +8,7 @@ namespace aplication
         public string Title { get; set; }
         public string Description { get; set; }
         public int Year { get; set; }
+        public bool Excluded { get; set; }
 
         public Serie(Gender gender, string title, string description, int year, int id) : base(id)
         {
@@ -16,6 +17,7 @@ namespace aplication
             Description = description;
             Year = year;
             Id = id;
+            Excluded = false;
         }
 
         public string TitleReturn()
@@ -28,6 +30,16 @@ namespace aplication
             return Id;
         }
 
+        public bool ExcludeReturn()
+        {
+            return Excluded;
+        }
+
+        public void Exclude()
+        {
+            Excluded = true;
+        }
+
         public override string ToString()
         {
             StringBuilder text = new StringBuilder();
@@ -35,6 +47,7 @@ namespace aplication
             text.AppendLine("Título: " + Title);
             text.AppendLine("Descrição: " + Description);
             text.AppendLine("Ano: " + Year);
+            text.AppendLine("Excluído: " + Excluded);
 
             return text.ToString();
         }
